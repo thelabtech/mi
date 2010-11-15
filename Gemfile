@@ -31,3 +31,6 @@ gem 'acts_as_list'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+gem 'activerecord-oracle_enhanced-adapter'
+gem 'ruby-oci8'

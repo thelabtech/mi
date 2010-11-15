@@ -114,17 +114,17 @@ task :after_deploy, :roles => :app do
   deploy.cleanup
 end
 
-namespace :deploy do
-  desc 'Bundle and minify the JS and CSS files'
-  task :precache_assets, :roles => :app do
-    root_path = File.expand_path(File.dirname(__FILE__) + '/..')
-    assets_path = "#{root_path}/public/packages"
-    gem_path = ENV['GEM_PATH']
-    run_locally "jammit"
-    top.upload assets_path, "#{current_release}/public", :via => :scp, :recursive => true
-  end
-end
-after 'deploy:symlink', 'deploy:precache_assets'
+# namespace :deploy do
+#   desc 'Bundle and minify the JS and CSS files'
+#   task :precache_assets, :roles => :app do
+#     root_path = File.expand_path(File.dirname(__FILE__) + '/..')
+#     assets_path = "#{root_path}/public/packages"
+#     gem_path = ENV['GEM_PATH']
+#     run_locally "jammit"
+#     top.upload assets_path, "#{current_release}/public", :via => :scp, :recursive => true
+#   end
+# end
+# after 'deploy:symlink', 'deploy:precache_assets'
 
 # require 'config/boot'
 require 'hoptoad_notifier/capistrano'
