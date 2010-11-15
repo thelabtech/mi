@@ -1,0 +1,16 @@
+<div id="<%= dom_id(@person) %>">
+	<div class="toolbar">
+	  <h1><%= @person %></h1>
+		<a class="button back" href="#search_results">Results</a>
+		<a class="button" href="#home">Home</a>
+	</div>
+	<ul class="metal">
+	  <li>First: <%= @person.firstName %></li>
+	  <li>Last: <%= @person.lastName %></li>
+	  <% if @person.preferredName.present? && @person.preferredName != @person.firstName %>
+  	  <li>Preferred: <%= @person.preferredName %></li>
+  	<% end %>
+	  <li>Phone: <%= @person.phone %></li>
+	  <li>Email: <%= @person.email %></li>
+	</ul>
+</div>
