@@ -9,6 +9,7 @@ gem 'mysql2'
 gem 'acts_as_versioned'
 gem 'acts_as_state_machine'
 gem 'acts_as_list'
+gem 'paperclip'
 
 # Use unicorn as the web server
 # gem 'unicorn'

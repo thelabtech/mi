@@ -47,6 +47,9 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     mysql2 (0.2.6)
+    paperclip (2.3.5)
+      activerecord
+      activesupport
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -82,5 +85,6 @@ DEPENDENCIES
   acts_as_state_machine
   acts_as_versioned
   mysql2
+  paperclip
   rails (= 3.0.1)
   ruby-oci8
