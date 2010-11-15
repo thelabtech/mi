@@ -127,4 +127,4 @@ end
 # after 'deploy:symlink', 'deploy:precache_assets'
 
 # require 'config/boot'
-require 'hoptoad_notifier/capistrano'
+# require 'hoptoad_notifier/capistrano'
