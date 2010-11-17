@@ -1,8 +1,14 @@
 class PeopleController < ApplicationController
   def search
-    term = '%' + params[:name].strip + '%'
-    conditions = ["preferredName like ? OR firstName like ? OR lastName like ? OR concat(firstname, ' ', lastname) like ? OR concat(preferredName, ' ', lastname) like ?", term, term, term, params[:name].strip + '%', params[:name].strip + '%']
-    @people = Person.where(conditions).limit(50).order('lastName, preferredName')
+    query = params[:name].strip.split(' ')
+    first, last = query[0].to_s + '%', query[1].to_s + '%'
+    conditions = ["preferredName like ? OR firstName like ? OR lastName like ?", first, first]
+    if last == '%'
+      conditions << first
+    else
+      conditions << last
+    end
+    @people = Person.where(conditions).limit(50).order('lastName, firstName')
     @total = Person.where(conditions).count
     render :layout => false
   end

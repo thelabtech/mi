@@ -6,7 +6,7 @@
 	</div>
 	<ul class="rounded" id="results">
 	  <% @people.each do |person| %>
-		  <li class="arrow"><%= link_to(person, person) %></li>
+		  <li class="arrow"><%= link_to(person.name_with_nick, person) %></li>
 	  <% end %>
 	</ul>
 	<% if @total > @people.length %>
