@@ -12,6 +12,7 @@ gem 'acts_as_list'
 gem 'paperclip'
 # gem 'rubycas-client'
 gem 'dalli'
+gem 'vpim'
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -1,4 +1,5 @@
 Mi::Application.routes.draw do
+  resources :vcards
   resources :people do
     collection do
       post :search
