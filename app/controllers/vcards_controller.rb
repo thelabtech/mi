@@ -18,8 +18,10 @@ class VcardsController < ApplicationController
     			addr.preferred = true
     			addr.location = 'home'
           streets = [address.address1, address.address2, address.address3, address.address4].compact!
-          streets.reject! {|s| s.blank?}
-          addr.street = streets.join(', ')
+          if streets
+            streets.reject! {|s| s.blank?}
+            addr.street = streets.join(', ')
+          end
           addr.locality = address.city.to_s
           addr.region = address.state.to_s
           addr.postalcode = address.zip.to_s
@@ -34,6 +36,10 @@ class VcardsController < ApplicationController
     		maker.add_email(address.email) { |e| e.location = 'work' }
     	end
   	end
-  	send_data card.to_s, :filename => "contact.vcf"	
+  	filename = "/tmp/#{@person.id}.vcf"
+  	File.open(filename, 'w') do |file|
+  	  file.puts(card.to_s)
+	  end
+  	send_file(filename, :type => 'text/x-vcard')
   end
 end
