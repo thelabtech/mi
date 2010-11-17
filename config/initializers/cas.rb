@@ -1,6 +1,9 @@
 require 'casclient'
 require 'casclient/frameworks/rails/filter'
+
+# enable detailed CAS logging
 CASClient::Frameworks::Rails::Filter.configure(
   :cas_base_url => "https://signin.ccci.org/cas",
-  :extra_attributes_session_key => :cas_extra_attributes
+  :login_url => "https://signin.ccci.org/cas/login",
+  :validate_url => "https://signin.ccci.org/cas/serviceValidate"
 )
