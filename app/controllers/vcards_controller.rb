@@ -21,7 +21,8 @@ class VcardsController < ApplicationController
     		maker.add_addr do |addr|
     			addr.preferred = true
     			addr.location = 'home'
-          streets = [address.address1, address.address2, address.address3, address.address4].compact!
+          streets = [address.address1, address.address2, address.address3, address.address4]
+          streets.compact!
           if streets
             streets.reject! {|s| s.blank?}
             addr.street = streets.join(', ')
