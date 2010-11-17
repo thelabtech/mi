@@ -12,6 +12,6 @@
   	<% end %>
 	  <li>Phone: <%= @person.phone %></li>
 	  <li>Email: <%= @person.email %></li>
-	  <li><%= link_to('Add to contacts', vcard_path(@person)) %></li>
+	  <li><%= link_to('Add to contacts', vcard_path(@person), :target => '_blank') %></li>
 	</ul>
 </div>

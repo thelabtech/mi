@@ -36,10 +36,6 @@ class VcardsController < ApplicationController
     		maker.add_email(address.email) { |e| e.location = 'work' }
     	end
   	end
-  	filename = "/tmp/#{@person.id}.vcf"
-  	File.open(filename, 'w') do |file|
-  	  file.puts(card.to_s)
-	  end
-  	send_file(filename, :type => 'text/x-vcard')
+  	send_data(card.to_s, :filename => "contact.vcf", :type => 'text/x-vcard')
   end
 end
