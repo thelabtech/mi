@@ -10,7 +10,7 @@ gem 'acts_as_versioned'
 gem 'acts_as_state_machine'
 gem 'acts_as_list'
 gem 'paperclip'
-gem 'rubycas-client'
+# gem 'rubycas-client'
 gem 'dalli'
 
 # Use unicorn as the web server

@@ -7,6 +7,7 @@ Mi::Application.routes.draw do
   end
 
   get "dashboard/index"
+  get "dashboard/not_staff"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
