@@ -4,8 +4,12 @@ class VcardsController < ApplicationController
   def show
    	@person = Person.find(params[:id])
  
-  	card = Vpim::Vcard::Maker.make2 do |maker|
- 
+   card = Vpim::DirectoryInfo.create(
+    [
+      Vpim::DirectoryInfo::Field.create('VERSION', '2.1')
+    ], 'VCARD')
+
+  	Vpim::Vcard::Maker.make2(card) do |maker|
   		maker.add_name do |name|
         name.prefix = @person.title.to_s
         name.given = @person.nickname
