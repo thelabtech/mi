@@ -71,6 +71,8 @@ GEM
       thor (~> 0.14.0)
     rake (0.8.7)
     ruby-oci8 (2.0.4)
+    rubycas-client (2.2.1)
+      activesupport
     thor (0.14.4)
     treetop (1.4.8)
       polyglot (>= 0.3.1)
@@ -88,3 +90,4 @@ DEPENDENCIES
   paperclip
   rails (= 3.0.1)
   ruby-oci8
+  rubycas-client
