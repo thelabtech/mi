@@ -11,7 +11,7 @@
 	</ul>
 	<% if @people.total_entries > @people.length %>
   	<ul class="edgetoedge">
-  	  <li>Showing <%= @people.offset %>-<%= @people.offset + 49 %> of <%= number_with_delimiter(@people.total_entries) %></li>
+  	  <li>Showing <%= @people.offset + 1 %>-<%= @people.offset + 50 %> of <%= number_with_delimiter(@people.total_entries) %></li>
   	</ul>
   	<ul class="rounded" id="results">
   	  <li class="arrow"><%= link_to('Next', params.slice(:controller, :action, :name).merge(:page => params[:page] ? params[:page].to_i + 1 : 2)) %></li>
