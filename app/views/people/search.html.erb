@@ -1,4 +1,4 @@
-<div id="search_results">
+<div id="search_results_page_<%= params[:page] || 1 %>">
 	<div class="toolbar">
 	  <h1>Search Results</h1>
 		<a class="button back" href="#search">Search</a>
@@ -9,13 +9,15 @@
 		  <li class="arrow"><%= link_to(person.name_with_nick, person) %></li>
 	  <% end %>
 	</ul>
-	<% if @total > @people.length %>
+	<% if @people.total_entries > @people.length %>
   	<ul class="edgetoedge">
-  	  <li>Showing <%= @people.length %> of <%= number_with_delimiter(@total) %></li>
+  	  <li>Showing <%= @people.offset %>-<%= @people.offset + 49 %> of <%= number_with_delimiter(@people.total_entries) %></li>
   	</ul>
 	<% end %>
+	<ul class="rounded" id="results">
+	  <li class="arrow"><%= link_to('Next', params.slice(:controller, :action, :name).merge(:page => params[:page] ? params[:page].to_i + 1 : 2)) %></li>
+	  <% if params[:page] && params[:page].to_i > 1 %>
+  	  <li class="back_arrow"><%= link_to('Previous', params.slice(:controller, :action, :name).merge(:page => params[:page].to_i - 1)) %></li>
+  	<% end %>
+	</ul>
 </div>
-<script type="text/javascript" charset="utf-8">
-  // $('#spinner').hide();
-  // $('#submit_button').show()
-</script>

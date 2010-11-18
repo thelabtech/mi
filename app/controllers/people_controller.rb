@@ -7,8 +7,7 @@ class PeopleController < ApplicationController
     else
       conditions = ["(preferredName like ? OR firstName like ?) AND lastName like ?", first, first, last]
     end
-    @people = Person.where(conditions).limit(50).order('lastName, firstName')
-    @total = Person.where(conditions).count
+    @people = Person.where(conditions).order('lastName, firstName').paginate(:page => params[:page], :per_page => 50)
     render :layout => false
   end
   

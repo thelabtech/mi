@@ -13,6 +13,7 @@ gem 'paperclip'
 # gem 'rubycas-client'
 gem 'dalli'
 gem 'vpim'
+gem 'will_paginate'
 
 # Use unicorn as the web server
 # gem 'unicorn'
