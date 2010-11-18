@@ -41,6 +41,6 @@ class VcardsController < ApplicationController
     		maker.add_email(address.email) { |e| e.location = 'work' }
     	end
   	end
-  	send_data(card.to_s, :filename => "contact.vcf", :type => 'text/x-vcard')
+  	send_data(card.to_s, :filename => "contact.vcf", :type => 'text/x-vcard', :disposition => 'attachment')
   end
 end
