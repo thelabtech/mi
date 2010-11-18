@@ -13,11 +13,11 @@
   	<ul class="edgetoedge">
   	  <li>Showing <%= @people.offset %>-<%= @people.offset + 49 %> of <%= number_with_delimiter(@people.total_entries) %></li>
   	</ul>
+  	<ul class="rounded" id="results">
+  	  <li class="arrow"><%= link_to('Next', params.slice(:controller, :action, :name).merge(:page => params[:page] ? params[:page].to_i + 1 : 2)) %></li>
+  	  <% if params[:page] && params[:page].to_i > 1 %>
+    	  <li class="back_arrow"><%= link_to('Previous', params.slice(:controller, :action, :name).merge(:page => params[:page].to_i - 1)) %></li>
+    	<% end %>
+  	</ul>
 	<% end %>
-	<ul class="rounded" id="results">
-	  <li class="arrow"><%= link_to('Next', params.slice(:controller, :action, :name).merge(:page => params[:page] ? params[:page].to_i + 1 : 2)) %></li>
-	  <% if params[:page] && params[:page].to_i > 1 %>
-  	  <li class="back_arrow"><%= link_to('Previous', params.slice(:controller, :action, :name).merge(:page => params[:page].to_i - 1)) %></li>
-  	<% end %>
-	</ul>
 </div>
