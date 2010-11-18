@@ -10,8 +10,23 @@ class ApplicationController < ActionController::Base
     end
   end
   def staff_required
-    unless session[:cas_extra_attributes] && session[:cas_extra_attributes]['emplid'].present?
+    unless current_user && current_user.person && current_user.person.isStaff?
       redirect_to '/dashboard/not_staff' and return false
     end
+  end
+  
+  def current_user
+    unless @current_user
+      if session[:user_id]
+        @current_user = User.find(session[:user_id])
+      else
+        if session[:cas_extra_attributes].present? && guid = session[:cas_extra_attributes]['ssoGuid']
+          @current_user = User.find_by_globallyUniqueID(guid)
+        end
+        @current_user ||= User.find_by_username(session[:cas_user])
+        session[:user_id] = @current_user.id
+      end
+    end
+    @current_user
   end
 end

@@ -1,5 +1,5 @@
 $.jQTouch({
-    icon: 'jqtouch.png',
+    // icon: 'jqtouch.png',
     statusBar: 'black-translucent',
     preloadImages: [
         '/images/chevron.png',
