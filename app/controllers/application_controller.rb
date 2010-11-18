@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
   def staff_required
     unless session[:cas_extra_attributes] && session[:cas_extra_attributes]['emplid'].present?
-      # redirect_to '/dashboard/not_staff' and return false
+      redirect_to '/dashboard/not_staff' and return false
     end
   end
 end
