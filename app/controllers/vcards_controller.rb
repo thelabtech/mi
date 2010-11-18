@@ -41,11 +41,14 @@ class VcardsController < ApplicationController
     		maker.add_email(address.email) { |e| e.location = 'work' }
     	end
   	end
-    filename = "/tmp/#{@person.id}.vcf"
-    File.open(filename, 'w') do |file|
+    path = Rails.root.join('public', 'vcards').to_s
+    filename = "#{@person.id}.vcf"
+    FileUtils.mkdir_p(path)
+    File.open(path + '/' + filename, 'w') do |file|
       file.puts(card.to_s)
     end
-    send_file(filename, :type => 'text/x-vcard')
+    redirect_to "/vcards/#{filename}"
+    # send_file(filename, :type => 'text/x-vcard')
     # send_data(card.to_s, :filename => "contact.vcf", :type => 'text/x-vcard', :disposition => 'attachment')
   end
 end
