@@ -12,8 +12,8 @@ class VcardsController < ApplicationController
   	Vpim::Vcard::Maker.make2(card) do |maker|
   		maker.add_name do |name|
         name.prefix = @person.title.to_s
-        name.given = @person.nickname
-        name.family = @person.lastName
+        name.given = @person.nickname.to_s
+        name.family = @person.lastName.to_s
         name.additional = @person.firstName if @person.nickname != @person.firstName
   		end
     

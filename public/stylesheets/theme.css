@@ -552,3 +552,10 @@ ul.search-holder li input {
 	padding: 2px 12px;
 	width: 190px;
 }
+a.submit {
+	margin:0 5px;
+	color:rgba(0,0,0,.9);
+	display:inline;
+  padding: 0px;
+  font-size: 12px;
+}
