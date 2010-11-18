@@ -44,7 +44,7 @@ task :staging do
 end
   
 task :production do
-  set :deploy_to, "/var/www/html/production/#{application}"
+  set :deploy_to, "/var/www/html/integration/#{application}"
   # set :environment, 'production'
   # set :rails_env, 'production'
 end

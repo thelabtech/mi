@@ -8,6 +8,9 @@
 	  <% @people.each do |person| %>
 		  <li class="arrow"><%= link_to(person.name_with_nick, person) %></li>
 	  <% end %>
+	  <% if @people.length == 0 %>
+	    <li>No results were found for that search</li>
+	  <% end %>
 	</ul>
 	<% if @people.total_entries > @people.length %>
   	<ul class="edgetoedge">
