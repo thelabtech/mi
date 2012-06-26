@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.1'
+gem 'rails', '~>3.0.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'mysql2', '~>0.2.6'
 gem 'acts_as_versioned'
 gem 'acts_as_state_machine'
 gem 'acts_as_list'
@@ -14,6 +14,7 @@ gem 'paperclip'
 gem 'dalli'
 gem 'vpim'
 gem 'will_paginate'
+gem 'airbrake'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -37,5 +38,3 @@ gem 'will_paginate'
 #   gem 'webrat'
 # end
 
-gem 'activerecord-oracle_enhanced-adapter'
-gem 'ruby-oci8'
